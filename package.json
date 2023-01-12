@@ -1,0 +1,50 @@
+{
+  "name": "learnX-companion",
+  "productName": "learnX Companion",
+  "description": "A desktop companion app for learnX.",
+  "author": {
+    "name": "Rui Ying",
+    "email": "yingrui205@gmail.com"
+  },
+  "version": "1.0.0",
+  "private": true,
+  "main": "app/index.js",
+  "scripts": {
+    "dev": "nextron",
+    "build": "nextron build",
+    "build:all": "nextron build --win --mac",
+    "build:win": "nextron build --win",
+    "build:mac": "nextron build --mac",
+    "release": "nextron build --publish always",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "devDependencies": {
+    "@emotion/react": "11.10.5",
+    "@emotion/styled": "11.10.5",
+    "@mui/icons-material": "5.11.0",
+    "@mui/material": "5.11.4",
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.10",
+    "axios": "1.2.2",
+    "dayjs": "1.11.7",
+    "electron": "21.3.4",
+    "electron-builder": "23.6.0",
+    "electron-is-dev": "2.0.0",
+    "electron-log": "4.4.8",
+    "electron-serve": "1.1.0",
+    "electron-store": "8.1.0",
+    "electron-updater": "5.3.0",
+    "eslint": "8.31.0",
+    "eslint-config-next": "13.1.1",
+    "fs-extra": "11.1.0",
+    "next": "13.1.1",
+    "nextron": "8.4.0",
+    "prettier": "2.8.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "swr": "2.0.0",
+    "thu-learn-lib-no-native": "github:robertying/thu-learn-lib-no-native",
+    "typescript": "4.9.4"
+  }
+}
