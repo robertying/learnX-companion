@@ -10,6 +10,7 @@ import {
   setLastSyncTime,
 } from "./lib/data";
 import { getConfig } from "./lib/store";
+import { syncInterval } from "./config";
 
 export interface Config {
   username: string;
@@ -99,7 +100,7 @@ export const start = async () => {
   const config = await getConfig();
   console.log("Sync started");
   sync(config);
-  timer = setInterval(() => sync(config), 0.5 * 60 * 1000);
+  timer = setInterval(() => sync(config), syncInterval);
 };
 
 export const stop = () => {
