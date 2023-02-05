@@ -26,6 +26,10 @@
 >
 > Linux 及其它服务器环境可使用 Docker Image，详见[高级](#高级)。
 
+## 反馈
+
+此应用未经大规模测试，如有问题，请提交 [GitHub Issues](https://github.com/robertying/learnX-companion/issues)。
+
 ## 使用
 
 > 注意：
