@@ -15,7 +15,8 @@
     "build:all": "nextron build --win --mac",
     "build:win": "nextron build --win",
     "build:mac": "nextron build --mac",
-    "release": "nextron build --win --mac --publish always",
+    "release:gui": "nextron build --win --mac --publish always",
+    "release:docker": "docker build --platform=linux/amd64 -t robertying/learnx-companion:latest . && docker push robertying/learnx-companion:latest",
     "postinstall": "electron-builder install-app-deps"
   },
   "devDependencies": {
