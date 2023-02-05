@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ipcRenderer } from "electron";
 import {
   Button,
   Checkbox,
@@ -71,6 +72,10 @@ function Home() {
     setExcludedCourses(newExcludedCourses);
   };
 
+  const handleOpenHelp = () => {
+    ipcRenderer.invoke("openExternal", "https://tsinghua.app/learnX-companion");
+  };
+
   useEffect(() => {
     (async () => {
       const excludedCourses = await getStoreValue("excludedCourses", []);
@@ -124,14 +129,19 @@ function Home() {
             </Button>
           )}
           {userInfoData && (
-            <Button
-              variant="contained"
-              size="small"
-              component={Link}
-              href="/settings"
-            >
-              设置
-            </Button>
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Button
+                variant="contained"
+                size="small"
+                component={Link}
+                href="/settings"
+              >
+                设置
+              </Button>
+              <Button size="small" onClick={handleOpenHelp}>
+                使用指南
+              </Button>
+            </Stack>
           )}
         </Stack>
         {userInfoData && (

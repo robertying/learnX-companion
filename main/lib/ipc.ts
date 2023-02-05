@@ -40,6 +40,10 @@ ipcMain.handle("openConfigFile", (event) => {
   shell.showItemInFolder(configPath);
 });
 
+ipcMain.handle("openExternal", (event, url) => {
+  shell.openExternal(url);
+});
+
 ipcMain.handle("getVersion", (event) => {
   return app.getVersion();
 });
