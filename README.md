@@ -12,7 +12,7 @@
 
 <a href="https://github.com/robertying/learnX-companion/releases" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/github/v/release/robertying/learnX-companion?color=brightgreen" alt="GitHub release (latest SemVer)" height="20" width="auto"></a>
 
-<img src="./docs/assets/screenshot-main.png" alt="app screenshot" height="416" width="256" />
+<img src="./docs/assets/screenshot-main.png" alt="app screenshot" height="832" width="512" />
 
 </div>
 
@@ -37,7 +37,7 @@
 1. 打开 learnX Companion 应用。应用启动后，会自动最小化至菜单栏（macOS）或托盘（Windows）。在菜单栏（macOS）或托盘（Windows）找到 “X” 图标并点击，选择“打开 learnX Companion” 进入主界面。
 2. 点击“登录”按钮，进入设置界面。
 
-   <img src="./docs/assets/screenshot-settings.png" alt="settings screenshot" height="416" width="256" />
+   <img src="./docs/assets/screenshot-settings.png" alt="settings screenshot" height="832" width="512" />
 
 3. 输入用户名/学号以及密码。
 
