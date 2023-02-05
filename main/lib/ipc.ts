@@ -1,8 +1,10 @@
 import { ipcMain, shell, app } from "electron";
+import isDev from "electron-is-dev";
 import { setStoreValue, getStoreValue, configPath } from "./store";
 import { login, dataSource } from "./data";
 import { setOpenAtLogin } from "./settings";
 import { start, stop } from "../sync";
+import { checkForUpdatesAndNotify } from "./update";
 
 ipcMain.handle("getStoreValue", (event, key, defaultValue) => {
   return getStoreValue(key, defaultValue);
@@ -40,6 +42,12 @@ ipcMain.handle("openConfigFile", (event) => {
 
 ipcMain.handle("getVersion", (event) => {
   return app.getVersion();
+});
+
+ipcMain.handle("checkForUpdates", async (event) => {
+  if (!isDev) {
+    await checkForUpdatesAndNotify();
+  }
 });
 
 ipcMain.handle("setOpenAtLogin", (event, value) => {

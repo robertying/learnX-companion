@@ -114,6 +114,10 @@ function Settings() {
     setOpenAtLogin(!openAtLogin);
   };
 
+  const handleCheckUpdates = () => {
+    ipcRenderer.invoke("checkForUpdates");
+  };
+
   useEffect(() => {
     (async () => {
       const username = await getStoreValue("username", "");
@@ -139,6 +143,7 @@ function Settings() {
       <AppBar sx={{ position: "relative" }} color="primary">
         <Toolbar>
           <IconButton
+            sx={{ ml: 0 }}
             edge="start"
             color="inherit"
             onClick={handleClose}
@@ -250,7 +255,7 @@ function Settings() {
           </ListItemButton>
         </ListItem>
         <ListItem>
-          <ListItemButton>
+          <ListItemButton onClick={handleCheckUpdates}>
             <ListItemText primary="版本" secondary={version} />
           </ListItemButton>
         </ListItem>
