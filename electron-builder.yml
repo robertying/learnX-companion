@@ -32,4 +32,4 @@ publish:
   - provider: generic
     url: https://dl.ruiying.io/learnX-companion/
   - provider: github
-# afterSign: ./scripts/notarize.js
+afterSign: ./scripts/notarize.js

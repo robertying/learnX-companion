@@ -1,5 +1,7 @@
-require("dotenv").config();
-const { notarize } = require("electron-notarize");
+require("dotenv").config({
+  path: `${__dirname}/../.env.local`,
+});
+const { notarize } = require("@electron/notarize");
 
 exports.default = async function notarizing(context) {
   const { electronPlatformName, appOutDir } = context;
@@ -10,9 +12,10 @@ exports.default = async function notarizing(context) {
   const appName = context.packager.appInfo.productFilename;
 
   return await notarize({
-    appBundleId: "io.robertying.learnx-companion",
+    tool: "notarytool",
     appPath: `${appOutDir}/${appName}.app`,
     appleId: process.env.APPLE_ID,
-    appleIdPassword: process.env.APPLE_ID_PASS,
+    appleIdPassword: process.env.APPLE_ID_PASSWORD,
+    teamId: process.env.APPLE_TEAM_ID,
   });
 };
