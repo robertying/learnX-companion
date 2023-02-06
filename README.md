@@ -38,7 +38,7 @@
 >
 > 暂仅支持 iOS/iPadOS 与 macOS 的推送通知，不支持 Android。
 
-1. 打开 learnX Companion 应用。应用启动后，会自动最小化至菜单栏（macOS）或托盘（Windows）。在菜单栏（macOS）或托盘（Windows）找到 “X” 图标并点击，选择“打开 learnX Companion” 进入主界面。
+1. 打开 learnX Companion 应用（Windows 下运行安装程序后应用会自动启动）。应用启动后，会自动最小化至菜单栏（macOS）或托盘（Windows）。在菜单栏（macOS）或托盘（Windows）找到 “X” 图标并点击，选择“打开 learnX Companion” 进入主界面。
 2. 点击“登录”按钮，进入设置界面。
 
    <img src="./docs/assets/screenshot-settings.png" alt="settings screenshot" height="832" width="512" />
