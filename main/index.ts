@@ -16,10 +16,10 @@ if (!gotTheLock) {
 
 const platform = os.platform();
 
-serve({ directory: "app" });
-
 let mainWindow: BrowserWindow | null = null;
 let isQuitting = false;
+
+serve({ directory: "app" });
 
 function createMainWindow() {
   const mainWindow = new BrowserWindow({
@@ -75,6 +75,11 @@ function createTray() {
           platform === "darwin" ? "trayTemplate.png" : "icon.ico"
         )
   );
+  if (platform === "win32") {
+    tray.on("click", () => {
+      showMainWindow();
+    });
+  }
   tray.setContextMenu(
     Menu.buildFromTemplate([
       {
