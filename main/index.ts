@@ -26,6 +26,7 @@ function createMainWindow() {
     width: 400,
     height: 720,
     backgroundColor: nativeTheme.shouldUseDarkColors ? "#000" : "#fff",
+    autoHideMenuBar: true,
     webPreferences: {
       contextIsolation: false,
       nodeIntegration: true,
