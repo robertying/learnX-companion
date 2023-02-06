@@ -9,6 +9,11 @@ import "./lib/update";
 import { getOpenAtLogin, setOpenAtLogin } from "./lib/settings";
 import { start, stop } from "./sync";
 
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) {
+  app.quit();
+}
+
 const platform = os.platform();
 
 serve({ directory: "app" });
@@ -48,6 +53,13 @@ function createMainWindow() {
   return mainWindow;
 }
 
+function showMainWindow() {
+  if (!mainWindow) {
+    mainWindow = createMainWindow();
+  }
+  mainWindow.show();
+}
+
 function createTray() {
   const tray = new Tray(
     isDev
@@ -67,10 +79,7 @@ function createTray() {
       {
         label: "打开 learnX Companion",
         click: () => {
-          if (!mainWindow) {
-            mainWindow = createMainWindow();
-          }
-          mainWindow.show();
+          showMainWindow();
         },
       },
       {
@@ -100,6 +109,10 @@ app.on("activate", () => {
   if (!mainWindow) {
     mainWindow = createMainWindow();
   }
+});
+
+app.on("second-instance", () => {
+  showMainWindow();
 });
 
 app.on("before-quit", () => {
