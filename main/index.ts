@@ -66,13 +66,13 @@ function createTray() {
     isDev
       ? path.resolve(
           __dirname,
-          platform === "darwin"
-            ? "../assets/trayTemplate.png"
-            : "../assets/icon.ico"
+          platform === "win32"
+            ? "../assets/icon.ico"
+            : "../assets/trayTemplate.png"
         )
       : path.resolve(
           process.resourcesPath,
-          platform === "darwin" ? "trayTemplate.png" : "icon.ico"
+          platform === "win32" ? "icon.ico" : "trayTemplate.png"
         )
   );
   if (platform === "win32") {

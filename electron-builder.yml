@@ -28,6 +28,10 @@ win:
     - target: nsis
       arch:
         - x64
+linux:
+  target:
+    - target: AppImage
+  category: Utility
 publish:
   - provider: generic
     url: https://dl.ruiying.io/learnX-companion/
