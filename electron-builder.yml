@@ -31,6 +31,8 @@ win:
 linux:
   target:
     - target: AppImage
+      arch:
+        - x64
   category: Utility
 publish:
   - provider: generic

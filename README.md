@@ -22,9 +22,9 @@
 
 > 注意：
 >
-> GUI 桌面应用仅支持 ARM macOS、Intel macOS 以及 64 位 Windows。
+> GUI 桌面应用支持 macOS (Apple Silicon & Intel)、Linux (amd64) 以及 Windows (x64)。
 >
-> Linux 及其它服务器环境可使用 Docker Image，详见[高级](#高级)。
+> 其它环境可使用 Docker Image (linux/amd64)，详见[高级](#高级)。
 
 ## 反馈
 
