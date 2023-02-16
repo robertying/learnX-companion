@@ -72,10 +72,10 @@ GUI 应用会在后台运行以获取最新的网络学堂数据。这意味着�
 2. 将配置文件复制到运行 Docker 的设备上，运行：
 
    ```bash
-   docker run -d --name learnx --restart unless-stopped -v /some/path/config.json:/app/config.json robertying/learnx-companion:latest
+   docker run -d --name learnx --restart unless-stopped -v /some/absolute/path/config.json:/app/config.json robertying/learnx-companion:latest
    ```
 
-   请将 `/some/path/config.json` 替换为配置文件在宿主机上的路径，如：
+   请将 `/some/absolute/path/config.json` 替换为配置文件在宿主机上的路径，如：
 
    ```bash
    docker run -d --name learnx --restart unless-stopped -v /home/yr16/config.json:/app/config.json robertying/learnx-companion:latest

@@ -1,13 +1,16 @@
 FROM node:16-alpine
+
+RUN addgroup -S -g 1001 learnx && adduser -S -G learnx -u 1001 learnx
+
+RUN apk add --no-cache 'su-exec>=0.2'
+
+RUN mkdir /app && chown learnx:learnx /app
 WORKDIR /app
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 learnx
+COPY docker-entrypoint.sh ./
+COPY app/cli.js app/cli.js.map ./
 
-COPY --chown=learnx:nodejs app/cli.js app/cli.js.map ./
+ENTRYPOINT [ "/app/docker-entrypoint.sh" ]
 
 ENV NODE_ENV production
-
-USER learnx
-
-CMD ["node", "cli.js", "config.json"]
+CMD [ "node", "cli.js", "config.json" ]
