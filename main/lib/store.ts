@@ -34,7 +34,7 @@ export const setStoreValue = async (key: string, value: any) => {
   } else {
     const config = await fs.readJSON(configPath);
     config[key] = value;
-    await fs.writeJSON(configPath, config);
+    await fs.writeJSON(configPath, config, { spaces: 2 });
   }
 };
 
