@@ -10,7 +10,7 @@ export const generateNoticeDiff = (
   newData: Notification[]
 ) => {
   const diff = newData.filter((item) => {
-    return dayjs.tz(item.publishTime).isAfter(lastSyncTime);
+    return dayjs(item.publishTime).isAfter(lastSyncTime);
   });
   return diff;
 };
@@ -27,7 +27,7 @@ export const generateAssignmentDiff = (
 
 export const generateFileDiff = (lastSyncTime: Dayjs, newData: File[]) => {
   const diff = newData.filter((item) => {
-    return dayjs.tz(item.uploadTime).isAfter(lastSyncTime);
+    return dayjs(item.uploadTime).isAfter(lastSyncTime);
   });
   return diff;
 };

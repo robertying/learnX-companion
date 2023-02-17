@@ -1,10 +1,4 @@
 import dayjs, { Dayjs } from "dayjs";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.tz.setDefault("Asia/Shanghai");
-
 import axios, { AxiosError } from "axios";
 import { Learn2018Helper } from "thu-learn-lib-no-native";
 import type {
@@ -24,7 +18,7 @@ import {
 export const dataSource = new Learn2018Helper();
 
 export const getLastSyncTime = async () => {
-  return dayjs.tz((await getStoreValue("lastSyncTime", new Date())) as Date);
+  return dayjs((await getStoreValue("lastSyncTime", new Date())) as Date);
 };
 
 export const setLastSyncTime = async (time: Dayjs) => {
