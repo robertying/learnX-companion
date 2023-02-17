@@ -1,5 +1,10 @@
 import dayjs from "dayjs";
-import type { CourseInfo } from "thu-learn-lib-no-native/lib/types";
+import type {
+  CourseInfo,
+  File,
+  Homework,
+  Notification,
+} from "thu-learn-lib-no-native/lib/types";
 import {
   dataSource,
   getAndDiffAssignmentsAndGrades,
@@ -61,9 +66,14 @@ export const sync = async (config: Config) => {
   }
 
   const lastSyncTime = await getLastSyncTime();
-  const now = dayjs();
 
-  const payload: any = {
+  const payload: {
+    version: number;
+    notices: Notification[];
+    assignments: Homework[];
+    files: File[];
+    grades: Homework[];
+  } = {
     version: 1,
     notices: [],
     assignments: [],
@@ -89,9 +99,35 @@ export const sync = async (config: Config) => {
     })(),
   ]);
 
-  sendUpdate(payload);
+  await sendUpdate(payload);
 
-  await setLastSyncTime(now);
+  let latestTime = lastSyncTime;
+  for (const notice of payload.notices) {
+    const time = dayjs(notice.publishTime);
+    if (time.isAfter(latestTime)) {
+      latestTime = time;
+    }
+  }
+  for (const assignment of payload.assignments) {
+    const time = dayjs(assignment.publishTime);
+    if (time.isAfter(latestTime)) {
+      latestTime = time;
+    }
+  }
+  for (const file of payload.files) {
+    const time = dayjs(file.uploadTime);
+    if (time.isAfter(latestTime)) {
+      latestTime = time;
+    }
+  }
+  for (const grade of payload.grades) {
+    const time = dayjs(grade.gradeTime!);
+    if (time.isAfter(latestTime)) {
+      latestTime = time;
+    }
+  }
+
+  await setLastSyncTime(latestTime);
 };
 
 let timer: NodeJS.Timer | null = null;
@@ -99,8 +135,8 @@ let timer: NodeJS.Timer | null = null;
 export const start = async () => {
   const config = await getConfig();
   console.log("Sync started");
-  sync(config);
   timer = setInterval(() => sync(config), syncInterval);
+  sync(config);
 };
 
 export const stop = () => {

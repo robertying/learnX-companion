@@ -162,6 +162,6 @@ export const sendUpdate = async (payload: any) => {
       tokens: deviceTokens,
     });
   } catch (e) {
-    console.error("Send update failed", (e as AxiosError).toJSON());
+    throw new Error("Send update failed", (e as AxiosError).toJSON());
   }
 };
