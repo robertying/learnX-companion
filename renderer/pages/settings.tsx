@@ -110,6 +110,10 @@ function Settings() {
     ipcRenderer.invoke("openConfigFile");
   };
 
+  const handleOpenLog = () => {
+    ipcRenderer.invoke("openLogFile");
+  };
+
   const handleOpenAtLogin = () => {
     setOpenAtLogin(!openAtLogin);
   };
@@ -252,6 +256,11 @@ function Settings() {
         <ListItem>
           <ListItemButton onClick={handleOpenConfig}>
             <ListItemText primary="定位配置文件" secondary="用于命令行程序" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton onClick={handleOpenLog}>
+            <ListItemText primary="定位日志文件" />
           </ListItemButton>
         </ListItem>
         <ListItem>

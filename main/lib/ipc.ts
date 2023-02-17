@@ -1,5 +1,6 @@
 import { ipcMain, shell, app } from "electron";
 import isDev from "electron-is-dev";
+import log from "electron-log";
 import { setStoreValue, getStoreValue, configPath } from "./store";
 import { login, dataSource } from "./data";
 import { setOpenAtLogin } from "./settings";
@@ -38,6 +39,10 @@ ipcMain.handle(
 
 ipcMain.handle("openConfigFile", (event) => {
   shell.showItemInFolder(configPath);
+});
+
+ipcMain.handle("openLogFile", (event) => {
+  shell.showItemInFolder(log.transports.file.getFile().path);
 });
 
 ipcMain.handle("openExternal", (event, url) => {
