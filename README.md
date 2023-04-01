@@ -18,7 +18,7 @@
 
 ## 下载
 
-[GitHub Releases](https://github.com/robertying/learnX-companion/releases)
+👉 [GitHub Releases](https://github.com/robertying/learnX-companion/releases)
 
 > 注意：
 >
@@ -28,7 +28,7 @@
 
 ## 反馈
 
-此应用未经大规模测试，如有问题，请提交 [GitHub Issues](https://github.com/robertying/learnX-companion/issues)。
+如有问题，请提交 [GitHub Issues](https://github.com/robertying/learnX-companion/issues)。
 
 ## 使用
 
@@ -86,7 +86,7 @@ GUI 应用会在后台运行以获取最新的网络学堂数据。这意味着�
    docker run -d --name learnx --restart unless-stopped -v /some/absolute/path/config.json:/app/config.json robertying/learnx-companion:latest
    ```
 
-   请将 `/some/absolute/path/config.json` 替换为配置文件在宿主机上的路径，如：
+   请将 `/some/absolute/path/config.json` 替换为配置文件在宿主机上的**绝对**路径，如：
 
    ```bash
    docker run -d --name learnx --restart unless-stopped -v /home/yr16/config.json:/app/config.json robertying/learnx-companion:latest
