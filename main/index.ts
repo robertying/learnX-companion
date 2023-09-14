@@ -39,7 +39,6 @@ function createMainWindow() {
     if (!isQuitting) {
       event.preventDefault();
       mainWindow!.hide();
-      event.returnValue = false;
     }
   });
 
