@@ -6,7 +6,7 @@
     "name": "Rui Ying",
     "email": "yingrui205@gmail.com"
   },
-  "version": "2.4.0",
+  "version": "2.5.0",
   "private": true,
   "main": "app/index.js",
   "scripts": {
